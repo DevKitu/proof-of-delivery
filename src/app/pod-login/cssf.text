@@ -1,0 +1,71 @@
+* {
+    font-family: "Hind", "Hind-regular";
+}
+
+Image {
+    width: 50%;
+    height: 50%;
+}
+
+.card {
+    margin: 10;
+    margin-top: 100;
+    padding: 5;
+    vertical-align: top;
+    background-color: white;
+    border-width: 1;
+    border-radius: 5;
+    border-color: white;
+}
+
+.btn {
+    border-radius: 30%;
+    border-style: solid;
+    border-color: #66cc33;
+    border-width: 1;
+    font-size: 18;
+    font-weight: bold;
+    background-color: transparent;
+    color: black;
+}
+
+.btn-active {
+    background-color: #66cc33;
+    color: white;
+}
+
+.header {
+    color: white;
+    font-weight: bold;
+    font-size: 20;
+    margin: 10;
+}
+
+.logoText {
+    color: black;
+    font-weight: bold;
+    font-size: 20;
+    text-align: center;
+    justify-content: center;
+}
+
+.logoTextSign {
+    color: #66cc33;
+    font-weight: bold;
+    font-size: larger;
+    text-align: center;
+    justify-content: center;
+}
+
+.logo {
+    margin-top: 5;
+    margin-bottom: 10;
+}
+
+
+.gold {
+    background-color: #FACC45;
+    border-width: 1;
+    border-radius: 5;
+    border-color: #FACC45;
+}

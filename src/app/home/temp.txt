@@ -1,0 +1,63 @@
+saveToFile(res) {
+    const imgsrc = res;
+    console.log("start saving -> ", res);
+    this.imagePath = this.utilsService.documentsPath(`photo-${Date.now()}.png`);
+    imgsrc.saveToFile(this.imagePath, enums.ImageFormat.png);
+  }
+
+saveProofOD(id: string) {
+    if (this.image) {
+      // upload the file, then save all
+      console.log("there is an image tobe uploaded-> ", this.imagePath);
+      this.firebaseService.uploadFile(this.imagePath).then((uploadedFile: any) => {
+            this.uploadedImageName = uploadedFile.name;
+            console.log("file name tobe uploaded-> ", this.uploadedImageName);
+            // get downloadURL and store it as a full path;
+            this.firebaseService.getDownloadUrl(this.uploadedImageName).then((downloadUrl: string) => {
+              this.firebaseService.saveProofOD(id, this.description, downloadUrl).then((result: any) => {
+                alert(result);
+              }, (error: any) => {
+                  alert(error);
+              });
+            });
+          }, (error: any) => {
+            alert("File upload error: " + error);
+          });
+    } else {
+      // just edit the description
+      this.firebaseService.editDescription(id, this.description).then((result: any) => {
+          alert(result);
+      }, (error: any) => {
+          alert(error);
+      });
+    }
+  }
+
+
+  <StackLayout #pod class="form" orientation="vertical" >
+      <!--Label class="page__content-icon fas" text="&#xf015;"></Label>
+      <Label class="page__content-placeholder" text="Page content goes here "></Label-->
+
+      <Label class="h2" text=" "></Label>
+      <Label class="h2" text="Add POD: "></Label>
+      <Label class="h2" text=" "></Label>
+      <Image *ngIf="imagepath" width="20" height="20" [src]="imagepath"></Image>
+      <TextField hint="Details: " [text]="description" class="m-t-10 input input-border" [(ngModel)]="description"></TextField>
+
+      <GridLayout columns="*,*">
+          <Button col="0" class="btn btn-primary nt-icon fas" text="&#xf02a;" ></Button>
+          <Button col="1" class="btn btn-primary nt-icon fas" text="&#xf030;" (tap)="takePhoto()"></Button>
+      </GridLayout>
+      <Button class="btn btn-primary nt-icon fas" text="&#xf0c7;" (tap)="saveProofOD(id)" ></Button>
+      <GridLayout rows="500" columns="200, 200">
+        <StackLayout orientation="vertical" row="0" col="0">
+          <Label width="50" height="50" > Scanned Image</Label>
+          <Image [src]="image"></Image>
+        </StackLayout>
+        <StackLayout orientation="vertical" row="0" col="1">
+            <Label width="50" height="50"> Signature Image</Label>
+            <Image [src]="image"></Image>
+        </StackLayout>
+
+      </GridLayout>
+  </StackLayout>

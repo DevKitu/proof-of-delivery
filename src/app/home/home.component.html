@@ -1,0 +1,133 @@
+<ActionBar class="action-bar">
+
+    <NavigationButton ios:visibility="collapsed" icon="res://menu" (tap)="onDrawerButtonTap()"></NavigationButton>
+
+    <ActionItem icon="res://menu" android:visibility="collapsed" (tap)="onDrawerButtonTap()"
+        ios.position="left">
+    </ActionItem>
+    <Label text="HOME"></Label>
+</ActionBar>
+<ScrollView orientation="horizontal">
+
+  <StackLayout>
+
+    <!-- Barcode section start></-->
+    <StackLayout class="section-header" orientation="horizontal">
+      <Label class="label-number" text="1"  ></Label>
+      <Label class="label-text" text="Scan Barcode "></Label>
+    </StackLayout>
+
+    <Label class="label-details" text="Press the scan button on the right "></Label>
+
+    <GridLayout class="section-content" rows="100" columns="50, 150, 100">
+
+      <StackLayout col="0" class="li-indicator">
+        <!--Switch  backgroundColor="green"  checked="true" (checkedChange)="onCheckedChange($event)"></Switch-->
+      </StackLayout>
+
+    <!--GridLayout col="1" class="li-avatar">
+      <Image *ngIf="imagepath" [src]="image" stretch="aspectFit"></Image>
+    </GridLayout-->
+
+      <StackLayout class="iten-TextField-container" col="1">
+        <TextField hint="barcode number... " [text]="barcodeValue" textDecoration="none" class="item-TextField" ></TextField>
+      </StackLayout>
+
+      <StackLayout col="2" orientation="horizontal">
+        <Button col="0" class="icon-item" text=" Scan " (tap)="getBarcode()" ></Button>
+        <!--Label class="icon-item nt-icon fas" text="Scan Barcode"  ></Label-->
+      </StackLayout>
+    </GridLayout>
+    <!-- barcode section  end ></-->
+
+    <!-- POD pic section  start></-->
+    <StackLayout class="section-header" orientation="horizontal">
+      <Label class="label-number" text="2"  ></Label>
+      <Label class="label-text" text="Take a picture of the POD "></Label>
+    </StackLayout>
+
+    <Label class="label-details" text="Press the picture button on the right "></Label>
+
+    <GridLayout class="section-content" rows="150" columns="50, 150, 100">
+
+      <StackLayout col="0" class="li-indicator">
+        <!--Switch  backgroundColor="green"  checked="true" (checkedChange)="onCheckedChange($event)"></Switch-->
+      </StackLayout>
+
+      <GridLayout col="1" class="li-avatar">
+        <Image *ngIf="imagepath" [src]="image" stretch="aspectFit"></Image>
+      </GridLayout>
+
+      <!--StackLayout class="iten-TextField-container" col="1">
+        <TextField hint="barcode number... " [text]="description" textDecoration="none" class="item-TextField" [(ngModel)]="description"></TextField>
+      </StackLayout-->
+
+      <StackLayout col="2" orientation="horizontal">
+        <Button col="0" class="icon-item fas" text=" &#xf030; " (tap)="takePhoto()" ></Button>
+        <!--Label class="icon-item nt-icon fas" text="Scan Barcode"  ></Label-->
+      </StackLayout>
+    </GridLayout>
+    <!-- POD pic section  end></-->
+
+    <!-- Signature capture section  start></-->
+    <StackLayout class="section-header" orientation="horizontal">
+      <Label class="label-number" text="3"  ></Label>
+      <Label class="label-text" text="Sign the POD "></Label>
+    </StackLayout>
+
+    <Label class="label-details" text="Press the button on the right "></Label>
+
+    <GridLayout class="section-content" rows="150" columns="50, 150, 100">
+
+      <StackLayout col="0" class="li-indicator">
+        <!--Switch  backgroundColor="green"  checked="true" (checkedChange)="onCheckedChange($event)"></Switch-->
+      </StackLayout>
+
+      <GridLayout col="1" class="li-avatar">
+        <Image *ngIf="imagepath" [src]="image" stretch="aspectFit"></Image>
+      </GridLayout>
+
+      <!--StackLayout class="iten-TextField-container" col="1">
+        <TextField hint="barcode number... " [text]="description" textDecoration="none" class="item-TextField" [(ngModel)]="description"></TextField>
+      </StackLayout-->
+
+      <StackLayout col="2" orientation="horizontal">
+        <Button col="0" class="icon-item " text=" Sign " ></Button>
+        <!--Label class="icon-item nt-icon fas" text="Scan Barcode"  ></Label-->
+      </StackLayout>
+    </GridLayout>
+    <!-- Signature capture section  end></-->
+
+    <!-- Barcode section start></-->
+    <StackLayout class="section-header" orientation="horizontal">
+      <Label class="label-number" text="4"  ></Label>
+      <Label class="label-text" text="Add Comment "></Label>
+    </StackLayout>
+
+    <!--Label class="label-details" text="Press the scan button on the right "></Label-->
+
+    <GridLayout class="section-content" rows="100" columns="50, 150, 100">
+
+      <StackLayout col="0" class="li-indicator">
+        <!--Switch  backgroundColor="green"  checked="true" (checkedChange)="onCheckedChange($event)"></Switch-->
+      </StackLayout>
+
+    <!--GridLayout col="1" class="li-avatar">
+      <Image *ngIf="imagepath" [src]="image" stretch="aspectFit"></Image>
+    </GridLayout-->
+
+      <StackLayout class="iten-TextField-container" col="1">
+        <TextField hint="delivery details... " [text]="description" textDecoration="none" class="item-TextField" [(ngModel)]="description"></TextField>
+      </StackLayout>
+
+      <StackLayout col="2" orientation="horizontal">
+        <!--Button col="0" class="icon-item" text=" Scan " ></Button-->
+        <!--Label class="icon-item nt-icon fas" text="Scan Barcode"  ></Label-->
+      </StackLayout>
+    </GridLayout>
+    <!-- barcode section  end ></-->
+      <Button text="Complete delivery" class="btn btn-active"  [isUserInteractionEnabled]="isTrue"></Button>
+
+  </StackLayout>
+
+</ScrollView>

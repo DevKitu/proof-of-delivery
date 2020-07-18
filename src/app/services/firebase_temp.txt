@@ -1,0 +1,24 @@
+getDownloadUrl(remoteFilePath: string): Promise<any> {
+      return firebase.getDownloadUrl({
+        remoteFullPath: remoteFilePath})
+      .then((url: string) => {
+          return url;
+        },
+        (errorMessage: any) => {
+          console.log("Could not get download url: ", errorMessage);
+        });
+}
+// save Proof of deliveries details information
+saveProofOD(id: string, description: string, imagepath: string) {
+      // this.publishUpdates();
+        return firebase.set("/ProofOD/" + id + "", {
+            description,
+            imagepath})
+              .then(
+                  (result: any) => {
+                    return "You have successfully saved this PrOD!";
+                    },
+              (errorMessage: any) => {
+                  console.log(errorMessage);
+                });
+      }

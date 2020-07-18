@@ -1,0 +1,41 @@
+<ScrollView orientation="horizontal">
+    <StackLayout orientation="vertical" width="100%" height="100%">
+        <ActionBar class="action-bar">
+
+            <NavigationButton ios:visibility="collapsed"></NavigationButton>
+
+            <ActionItem android:visibility="collapsed">
+            </ActionItem>
+
+            <Label class="header" [text]="title"></Label>
+        </ActionBar>
+
+        <StackLayout height="80%" class="card">
+
+            <Image src="~/app/images/logo.png" stretch="aspectFit" horizontalAlignment="center"></Image>
+            <Label></Label>
+            <Label letterSpacing="0.2" class="logoText">
+                <FormattedString>
+                    <Span text="POD"></Span>
+                    <Span text="$" color="#048E27"></Span>
+                </FormattedString>
+            </Label>
+            <StackLayout class="m-15">
+                <TextField #email class="input input-border" hint="Username" keyboardType="email"
+                    [(ngModel)]="user.email" autocorrect="false" autocapitalizationType="none"></TextField>
+                <TextField #password class="input input-border" hint="Password" secure="true"
+                    [(ngModel)]="user.password">
+                </TextField>
+                <Button [text]="isLoggingIn ? 'Login' : 'Register'" class="btn btn-active" (tap)="submit()" [isUserInteractionEnabled]="isTrue"></Button>
+                <!--Button [text]="isLoggingIn ? 'Register' : 'Back to login'" (tap)="toggleDisplay()" class="btn"></Button-->
+                <Button class="btn" text="Forgot password" (tap)="forgotPassword()"
+                    [opacity]="isLoggingIn ? 1 : 0"></Button>
+            </StackLayout>
+
+        </StackLayout>
+        <Label text="Making Deliveries Easy & Efficient" class="footnote"></Label>
+    </StackLayout>
+    <!--StackLayout>
+      <ActivityIndicator [busy]="isAuthenticating" color="red" width="100" height="100" (busyChange)="onAuthenticating($event)"></ActivityIndicator>
+    </StackLayout-->
+</ScrollView>

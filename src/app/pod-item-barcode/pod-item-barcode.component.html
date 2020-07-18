@@ -1,0 +1,17 @@
+<ActionBar class="action-bar">
+    <Label class="action-bar-title" text="Barcode scanning"></Label>
+</ActionBar>
+
+<StackLayout>
+    <Label></Label>
+    <Label text="Scan the barcode by placing the camera direcly on top of the barcode"></Label>
+    <Label></Label>
+    <GridLayout>
+        <BarcodeScanner height="300" width="400" formats="QR_CODE, EAN_13, UPC_A" beepOnScan="true"
+            reportDuplicates="true" preferFrontCamera="false" [pause]="pause" (scanResult)="onScanResult($event)">
+        </BarcodeScanner>
+        <Image src="~/images/crosshair.png" width="310" height="310" style="margin-top: 14; opacity: 0.3"
+            horizontalAlignment="center" verticalAlignment="center"></Image>
+    </GridLayout>
+
+</StackLayout>
